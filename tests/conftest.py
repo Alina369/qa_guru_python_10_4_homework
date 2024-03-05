@@ -2,6 +2,8 @@ import os
 import zipfile
 import pytest
 from path import RESOURCES_DIR, ARCHIVE_DIR, FILES_LIST, TMP_DIR
+import shutil
+
 
 @pytest.fixture
 def create_archive():
@@ -14,4 +16,4 @@ def create_archive():
     with zipfile.ZipFile(ARCHIVE_DIR, 'r') as zip_ref:
         zip_ref.extractall(TMP_DIR)
     yield TMP_DIR
-    os.remove(RESOURCES_DIR)
+    shutil.rmtree(RESOURCES_DIR)
