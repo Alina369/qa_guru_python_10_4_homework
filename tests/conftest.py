@@ -14,4 +14,4 @@ def create_archive():
     with zipfile.ZipFile(ARCHIVE_DIR, 'r') as zip_ref:
         zip_ref.extractall(TMP_DIR)
     yield TMP_DIR
-    os.remove(ARCHIVE_DIR)
+    os.remove(RESOURCES_DIR)

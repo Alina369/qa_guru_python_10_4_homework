@@ -7,8 +7,8 @@ def test_users_csv(create_archive):
     path = os.path.join(create_archive, 'username.csv')
     with open(path) as csvfile:
         reader = csv.DictReader(csvfile, delimiter=';')
-        names = [row['Username'] for row in reader]
-        print(names)
+        assert [row['Username'] for row in reader] == ['booker12', 'grey07', 'johnson81', 'jenkins46', 'smith79']
+
 
 
 def test_xlsx_file(create_archive):
